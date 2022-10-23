@@ -1,0 +1,19 @@
+import numpy
+import random
+t=float(input("введите t:"))
+m = random.randint(1, 5)
+suma=0
+Matrix = numpy.array([ [ random.randint(1, 5) for j in range(m)] for i in range(m) ], dtype='float')
+n=2
+nf=2
+while float(abs(numpy.linalg.det(Matrix)/nf))>t:
+    print (numpy.linalg.det(Matrix))
+    print (nf)
+    for i in range(m):
+        for j in range(m):
+            Matrix[i][j]*=n-1
+    
+    suma+=numpy.linalg.det(Matrix)/nf
+    n+=1
+    nf*=n
+print(suma)
